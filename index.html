@@ -21,20 +21,6 @@
         const WEBHOOK_URL = "https://script.google.com/macros/s/AKfycbz2lAkNz1fHorwS8Ip8F06KbS6duLuwQWkwV1Ly9pfZn2nWAbpXLRYGJDV44jj5uu66/exec";
 
         const DEFAULT_QUESTIONS = [
-            { id: "q_item1", category: "Considero que aprender habilidades relacionadas con IAG mejora mi desarrollo personal." },
-            { id: "q_item2", category: "Me resulta muy interesante el proceso de aprender habilidades de IAG." },
-            { id: "q_item3", category: "Creo que aprender habilidades de IAG enriquece mis competencias." },
-            { id: "q_item4", category: "Considero desafiante el proceso de aprender habilidades de IAG." },
-            { id: "q_item5", category: "Pienso que aprender habilidades de IAG me reportará muchos beneficios." },
-            { id: "q_item6", category: "Aprender habilidades de IAG me ayuda a desarrollar mi potencial." },
-            { id: "q_item7", category: "Aprender habilidades de IAG contribuye a mi crecimiento personal." },
-            { id: "q_item8", category: "Aprender habilidades de IAG puede aumentar mi ventaja para encontrar empleo." },
-            { id: "q_item9", category: "Aprender habilidades de IAG puede ayudarme a conservar mi empleo en el futuro." },
-            { id: "q_item10", category: "Aprender habilidades de IAG puede ayudarme a lograr un salario más alto." },
-            { id: "q_item11", category: "Tras aprender habilidades de IAG, mis opiniones recibirán más atención en el equipo." },
-            { id: "q_item12", category: "Aprender habilidades de IAG mejora la opinión que otros tienen de mí." },
-            { id: "q_item13", category: "Los demás reconocerán mis habilidades en el uso de la IAG." },
-            { id: "q_item14", category: "En general, aprender habilidades de IAG es muy útil para alcanzar mis metas." },
             { id: "q_item15", category: "Me considero capaz de desempeñar tareas relacionadas con la IAG." },
             { id: "q_item16", category: "Me veo capaz de ejecutar con éxito proyectos relacionados con la IAG." },
             { id: "q_item17", category: "Me percibo capaz de dominar los conocimientos y habilidades relacionados con la IAG." },
@@ -52,16 +38,16 @@
             { id: "q_item29", category: "Selecciono la estrategia de prompt para interactuar con la IAG según mi propio criterio." },
             { id: "q_item30", category: "Decido qué preguntas formular a la IAG según mi criterio." },
             { id: "q_item31", category: "Determino cuándo interactuar con la IAG según mi criterio." },
+            { id: "q_item37", category: "Introduzco prompts detallados en herramientas de IA generativa para acceder al contenido que necesito." },
+            { id: "q_item38", category: "Mejoro prompts que utilizo en herramientas de IA generativa para alcanzar el contenido que necesito." },
+            { id: "q_item39", category: "Detecto deficiencias en mis prompts a partir del contenido generado por la IA generativa." },
+            { id: "q_item40", category: "Creo prompts que hacen que el contenido generado por la IA generativa sea más significativo." },
+            { id: "q_item41", category: "Adapto prompts a distintas herramientas de IA generativa para obtener el contenido que necesito." },
             { id: "q_item32", category: "Cuando uso IAG, elijo la forma de completar las tareas de aprendizaje según mi criterio." },
-            { id: "q_item33", category: "Evito el uso indebido de la IAG." },
+            { id: "q_item33", category: "Evito el uso indebido de la IAG ." },
             { id: "q_item34", category: "Asumo activamente la responsabilidad de mi aprendizaje y no dejo que la IAG reemplace mi esfuerzo." },
             { id: "q_item35", category: "Soy cuidadoso/a con temas de seguridad y privacidad de la información cuando uso la IAG." },
             { id: "q_item36", category: "Cuando uso IAG, estoy atento ante cuestiones éticas como sesgos raciales y discriminación de género." },
-            { id: "q_item37", category: "Introduzco prompts detallados en herramientas de IAG para acceder al contenido que necesito." },
-            { id: "q_item38", category: "Mejoro prompts que utilizo en herramientas de IAG para alcanzar el contenido que necesito." },
-            { id: "q_item39", category: "Detecto deficiencias en mis prompts a partir del contenido generado por la IAG." },
-            { id: "q_item40", category: "Creo prompts que hacen que el contenido generado por la IAG sea más significativo." },
-            { id: "q_item41", category: "Adapto prompts a distintas herramientas de IAG para obtener el contenido que necesito." },
             { id: "q_item42", category: "Evalúo los riesgos importantes que puede suponer para las personas el uso indebido de la IAG." },
             { id: "q_item43", category: "Someto los sistemas de IAG a pruebas rigurosas para garantizar su correcto funcionamiento." },
             { id: "q_item44", category: "Asumo la responsabilidad de considerar el diseño y los procesos de decisión de la IAG en su uso." },
@@ -71,11 +57,26 @@
             { id: "q_item48", category: "Aplico la IAG para apoyar a personas desfavorecidas." },
             { id: "q_item49", category: "Cuestiono el contenido generado por la IAG." },
             { id: "q_item50", category: "Analizo la precisión del contenido presentado por la IAG." },
-            { id: "q_item51", category: "Entiendo que hay sesgos en el contenido generado por IAG." },
+            { id: "q_item51", category: "Entiendo que hay sesgos en el contenido generdao por IAG." },
             { id: "q_item52", category: "Contrasto el contenido presentado por la IAG con otras fuentes para evaluar su exactitud." },
             { id: "q_item53", category: "Evalúo la objetividad del contenido presentado por la IAG mediante la consulta de otras fuentes." },
             { id: "q_item54", category: "Distingo si el contenido presentado por la IAG corresponde a conocimiento científico o a una opinión subjetiva." },
             { id: "q_item55", category: "Verifico la precisión del contenido generado por la IAG antes de utilizarlo." },
+            { id: "q_item56_dup", category: "Tener limitado el número de prompts a emplear, hizo que diseñara los prompts de forma más reflexiva y precisa." },
+            { id: "q_item57_dup", category: "Emplear prompts siguiendo un modelo, como el CRAFT, mejoró la interacción con la IAG." },
+            { id: "q_item58_dup", category: "Tener limitado el número de fuentes bibliográficas en los trabajos, me obligo a seleccionar la información a emplear en el trabajo." },
+            { id: "q_item59_dup", category: "La declaración de uso me ayudó a ser más consciente de cómo utilizar mejor las herramientas de IAG." },
+            { id: "q_item60_dup", category: "He aprendido a diseñar prompts más claros y específicos, usando roles, contextos y formatos claros." },
+            { id: "q_item61_dup", category: "He aprendido a pedir formatos de salida útiles, como tablas, listas, resúmenes, etc." },
+            { id: "q_item62_dup", category: "He aprendido a reconocer cuándo la respuesta de la IAG contiene fuentes inexistentes o información incorrecta o inventada." },
+            { id: "q_item63_dup", category: "He aprendido a utilizar adecuadamente las opciones de configuración y personalización de las herramientas de IAG." },
+            { id: "q_item64_dup", category: "He aprendido a seleccionar la herramienta de IAG que considero más adecuada para cada tarea específica." },
+            { id: "q_item65_dup", category: "S G." },
+            { id: "q_item66_dup", category: "Ve ." },
+            { id: "q_item67_dup", category: "Ap s." },
+            { id: "q_item68_dup", category: "Cu G." },
+            { id: "q_item69_dup", category: "A AG." },
+            { id: "q_item70_dup", category: "Ent ." },
         ];
     </script>
 
@@ -109,453 +110,14 @@
                 </div>
 
                 <form id="matrix-form" novalidate>
-                    <div id="section-1" class="user-info-section">
+                    <div id="section-2" class="fade-in">
                         <div class="section-disclaimer"
                             style="text-align: center; margin-bottom: 1.5rem; padding: 1rem; background: #eef2f7; border-radius: 12px; border: 1px solid #d1d9e6; color: var(--text-secondary); font-size: 0.95rem; font-weight: 500;">
                             <i data-lucide="info"
                                 style="width: 18px; height: 18px; vertical-align: middle; margin-right: 8px; color: var(--accent);"></i>
                             <strong>IAG SIGNIFICA INTELIGENCIA ARTIFICIAL GENERATIVA</strong>
                         </div>
-                        <!-- Tarjeta 3: Tiempo usando IAG -->
-                        <div class="info-card">
-                            <div class="form-group-vertical">
-                                <label class="question-label">¿Cuánto tiempo llevas utilizando la IAG?</label>
-                                <div class="radio-list">
-                                    <label class="radio-option-item">
-                                        <input type="radio" name="time_using_ai" value="Menos de 1 año.">
-                                        <span>Menos de 1 año.</span>
-                                    </label>
-                                    <label class="radio-option-item">
-                                        <input type="radio" name="time_using_ai" value="Entre 1 y 2 años.">
-                                        <span>Entre 1 y 2 años.</span>
-                                    </label>
-                                    <label class="radio-option-item">
-                                        <input type="radio" name="time_using_ai" value="Entre 2 y 3 años.">
-                                        <span>Entre 2 y 3 años.</span>
-                                    </label>
-                                    <label class="radio-option-item">
-                                        <input type="radio" name="time_using_ai" value="Más de 3 años.">
-                                        <span>Más de 3 años.</span>
-                                    </label>
-                                </div>
-                            </div>
-                        </div>
-                        <!-- Tarjeta 4: Frecuencia IAG -->
-                        <div class="info-card">
-                            <div class="form-group-vertical">
-                                <label class="question-label">¿Con qué frecuencia usas la IAG?</label>
-                                <div class="radio-list">
-                                    <label class="radio-option-item">
-                                        <input type="radio" name="frequency_using_ai" value="Nunca.">
-                                        <span>Nunca.</span>
-                                    </label>
-                                    <label class="radio-option-item">
-                                        <input type="radio" name="frequency_using_ai" value="Una vez al mes.">
-                                        <span>Una vez al mes.</span>
-                                    </label>
-                                    <label class="radio-option-item">
-                                        <input type="radio" name="frequency_using_ai" value="Varias veces al mes.">
-                                        <span>Varias veces al mes.</span>
-                                    </label>
-                                    <label class="radio-option-item">
-                                        <input type="radio" name="frequency_using_ai" value="Una vez a la semana.">
-                                        <span>Una vez a la semana.</span>
-                                    </label>
-                                    <label class="radio-option-item">
-                                        <input type="radio" name="frequency_using_ai" value="Varias veces a la semana.">
-                                        <span>Varias veces a la semana.</span>
-                                    </label>
-                                    <label class="radio-option-item">
-                                        <input type="radio" name="frequency_using_ai" value="Diariamente.">
-                                        <span>Diariamente.</span>
-                                    </label>
-                                </div>
-                            </div>
-                        </div>
 
-                        <!-- Tarjeta 5: Frecuencia de herramientas IAG -->
-
-                        <div class="info-card">
-                            <h3 class="matrix-question-title">¿Qué herramienta/s de IAG utilizas con mayor frecuencia?
-                            </h3>
-
-                            <!-- Instrucciones previas -->
-                            <p style="margin-bottom: 1.5rem; text-align: justify; color: var(--text-primary);">
-                                Considera que 1 es “nunca” y 5 “diariamente”.
-                            </p>
-
-                            <div id="section-1-tools-container">
-                                <!-- Leyenda Pegajosa -->
-                                <div class="sticky-reminder"
-                                    style="position: sticky; top: 80px; z-index: 50; border: 1px solid var(--border); border-radius: 8px; margin-bottom: 0; background: #f8fafc; box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);">
-                                    Recuerda que 1 es “Nunca” y 5 es “Diariamente”.
-                                </div>
-
-                                <!-- ChatGPT -->
-                                <div class="tool-frequency-row" style="border-top: 1px solid var(--border);">
-                                    <div class="question-text"><span class="category-title">ChatGPT</span></div>
-                                    <div class="side-past">
-                                        <div class="tool-likert-group">
-                                            <label class="tool-likert-option"><input type="radio" name="freq_chatgpt"
-                                                    value="1">
-                                                <div class="tool-likert-circle"></div><span
-                                                    class="tool-likert-label">1</span>
-                                            </label>
-                                            <label class="tool-likert-option"><input type="radio" name="freq_chatgpt"
-                                                    value="2">
-                                                <div class="tool-likert-circle"></div><span
-                                                    class="tool-likert-label">2</span>
-                                            </label>
-                                            <label class="tool-likert-option"><input type="radio" name="freq_chatgpt"
-                                                    value="3">
-                                                <div class="tool-likert-circle"></div><span
-                                                    class="tool-likert-label">3</span>
-                                            </label>
-                                            <label class="tool-likert-option"><input type="radio" name="freq_chatgpt"
-                                                    value="4">
-                                                <div class="tool-likert-circle"></div><span
-                                                    class="tool-likert-label">4</span>
-                                            </label>
-                                            <label class="tool-likert-option"><input type="radio" name="freq_chatgpt"
-                                                    value="5">
-                                                <div class="tool-likert-circle"></div><span
-                                                    class="tool-likert-label">5</span>
-                                            </label>
-                                        </div>
-                                    </div>
-                                </div>
-                                <!-- Microsoft Copilot -->
-                                <div class="tool-frequency-row">
-                                    <div class="question-text"><span class="category-title">Microsoft Copilot</span>
-                                    </div>
-                                    <div class="side-past">
-                                        <div class="tool-likert-group">
-                                            <label class="tool-likert-option"><input type="radio" name="freq_copilot"
-                                                    value="1">
-                                                <div class="tool-likert-circle"></div><span
-                                                    class="tool-likert-label">1</span>
-                                            </label>
-                                            <label class="tool-likert-option"><input type="radio" name="freq_copilot"
-                                                    value="2">
-                                                <div class="tool-likert-circle"></div><span
-                                                    class="tool-likert-label">2</span>
-                                            </label>
-                                            <label class="tool-likert-option"><input type="radio" name="freq_copilot"
-                                                    value="3">
-                                                <div class="tool-likert-circle"></div><span
-                                                    class="tool-likert-label">3</span>
-                                            </label>
-                                            <label class="tool-likert-option"><input type="radio" name="freq_copilot"
-                                                    value="4">
-                                                <div class="tool-likert-circle"></div><span
-                                                    class="tool-likert-label">4</span>
-                                            </label>
-                                            <label class="tool-likert-option"><input type="radio" name="freq_copilot"
-                                                    value="5">
-                                                <div class="tool-likert-circle"></div><span
-                                                    class="tool-likert-label">5</span>
-                                            </label>
-                                        </div>
-                                    </div>
-                                </div>
-                                <!-- Google Gemini -->
-                                <div class="tool-frequency-row">
-                                    <div class="question-text"><span class="category-title">Google Gemini</span></div>
-                                    <div class="side-past">
-                                        <div class="tool-likert-group">
-                                            <label class="tool-likert-option"><input type="radio" name="freq_gemini"
-                                                    value="1">
-                                                <div class="tool-likert-circle"></div><span
-                                                    class="tool-likert-label">1</span>
-                                            </label>
-                                            <label class="tool-likert-option"><input type="radio" name="freq_gemini"
-                                                    value="2">
-                                                <div class="tool-likert-circle"></div><span
-                                                    class="tool-likert-label">2</span>
-                                            </label>
-                                            <label class="tool-likert-option"><input type="radio" name="freq_gemini"
-                                                    value="3">
-                                                <div class="tool-likert-circle"></div><span
-                                                    class="tool-likert-label">3</span>
-                                            </label>
-                                            <label class="tool-likert-option"><input type="radio" name="freq_gemini"
-                                                    value="4">
-                                                <div class="tool-likert-circle"></div><span
-                                                    class="tool-likert-label">4</span>
-                                            </label>
-                                            <label class="tool-likert-option"><input type="radio" name="freq_gemini"
-                                                    value="5">
-                                                <div class="tool-likert-circle"></div><span
-                                                    class="tool-likert-label">5</span>
-                                            </label>
-                                        </div>
-                                    </div>
-                                </div>
-                                <!-- Claude -->
-                                <div class="tool-frequency-row">
-                                    <div class="question-text"><span class="category-title">Claude</span></div>
-                                    <div class="side-past">
-                                        <div class="tool-likert-group">
-                                            <label class="tool-likert-option"><input type="radio" name="freq_claude"
-                                                    value="1">
-                                                <div class="tool-likert-circle"></div><span
-                                                    class="tool-likert-label">1</span>
-                                            </label>
-                                            <label class="tool-likert-option"><input type="radio" name="freq_claude"
-                                                    value="2">
-                                                <div class="tool-likert-circle"></div><span
-                                                    class="tool-likert-label">2</span>
-                                            </label>
-                                            <label class="tool-likert-option"><input type="radio" name="freq_claude"
-                                                    value="3">
-                                                <div class="tool-likert-circle"></div><span
-                                                    class="tool-likert-label">3</span>
-                                            </label>
-                                            <label class="tool-likert-option"><input type="radio" name="freq_claude"
-                                                    value="4">
-                                                <div class="tool-likert-circle"></div><span
-                                                    class="tool-likert-label">4</span>
-                                            </label>
-                                            <label class="tool-likert-option"><input type="radio" name="freq_claude"
-                                                    value="5">
-                                                <div class="tool-likert-circle"></div><span
-                                                    class="tool-likert-label">5</span>
-                                            </label>
-                                        </div>
-                                    </div>
-                                </div>
-                                <!-- Canva (IA) -->
-                                <div class="tool-frequency-row">
-                                    <div class="question-text"><span class="category-title">Canva (IA)</span></div>
-                                    <div class="side-past">
-                                        <div class="tool-likert-group">
-                                            <label class="tool-likert-option"><input type="radio" name="freq_canva"
-                                                    value="1">
-                                                <div class="tool-likert-circle"></div><span
-                                                    class="tool-likert-label">1</span>
-                                            </label>
-                                            <label class="tool-likert-option"><input type="radio" name="freq_canva"
-                                                    value="2">
-                                                <div class="tool-likert-circle"></div><span
-                                                    class="tool-likert-label">2</span>
-                                            </label>
-                                            <label class="tool-likert-option"><input type="radio" name="freq_canva"
-                                                    value="3">
-                                                <div class="tool-likert-circle"></div><span
-                                                    class="tool-likert-label">3</span>
-                                            </label>
-                                            <label class="tool-likert-option"><input type="radio" name="freq_canva"
-                                                    value="4">
-                                                <div class="tool-likert-circle"></div><span
-                                                    class="tool-likert-label">4</span>
-                                            </label>
-                                            <label class="tool-likert-option"><input type="radio" name="freq_canva"
-                                                    value="5">
-                                                <div class="tool-likert-circle"></div><span
-                                                    class="tool-likert-label">5</span>
-                                            </label>
-                                        </div>
-                                    </div>
-                                </div>
-                                <!-- Gamma -->
-                                <div class="tool-frequency-row">
-                                    <div class="question-text"><span class="category-title">Gamma</span></div>
-                                    <div class="side-past">
-                                        <div class="tool-likert-group">
-                                            <label class="tool-likert-option"><input type="radio" name="freq_gamma"
-                                                    value="1">
-                                                <div class="tool-likert-circle"></div><span
-                                                    class="tool-likert-label">1</span>
-                                            </label>
-                                            <label class="tool-likert-option"><input type="radio" name="freq_gamma"
-                                                    value="2">
-                                                <div class="tool-likert-circle"></div><span
-                                                    class="tool-likert-label">2</span>
-                                            </label>
-                                            <label class="tool-likert-option"><input type="radio" name="freq_gamma"
-                                                    value="3">
-                                                <div class="tool-likert-circle"></div><span
-                                                    class="tool-likert-label">3</span>
-                                            </label>
-                                            <label class="tool-likert-option"><input type="radio" name="freq_gamma"
-                                                    value="4">
-                                                <div class="tool-likert-circle"></div><span
-                                                    class="tool-likert-label">4</span>
-                                            </label>
-                                            <label class="tool-likert-option"><input type="radio" name="freq_gamma"
-                                                    value="5">
-                                                <div class="tool-likert-circle"></div><span
-                                                    class="tool-likert-label">5</span>
-                                            </label>
-                                        </div>
-                                    </div>
-                                </div>
-                                <!-- Perplexity -->
-                                <div class="tool-frequency-row">
-                                    <div class="question-text"><span class="category-title">Perplexity</span></div>
-                                    <div class="side-past">
-                                        <div class="tool-likert-group">
-                                            <label class="tool-likert-option"><input type="radio" name="freq_perplexity"
-                                                    value="1">
-                                                <div class="tool-likert-circle"></div><span
-                                                    class="tool-likert-label">1</span>
-                                            </label>
-                                            <label class="tool-likert-option"><input type="radio" name="freq_perplexity"
-                                                    value="2">
-                                                <div class="tool-likert-circle"></div><span
-                                                    class="tool-likert-label">2</span>
-                                            </label>
-                                            <label class="tool-likert-option"><input type="radio" name="freq_perplexity"
-                                                    value="3">
-                                                <div class="tool-likert-circle"></div><span
-                                                    class="tool-likert-label">3</span>
-                                            </label>
-                                            <label class="tool-likert-option"><input type="radio" name="freq_perplexity"
-                                                    value="4">
-                                                <div class="tool-likert-circle"></div><span
-                                                    class="tool-likert-label">4</span>
-                                            </label>
-                                            <label class="tool-likert-option"><input type="radio" name="freq_perplexity"
-                                                    value="5">
-                                                <div class="tool-likert-circle"></div><span
-                                                    class="tool-likert-label">5</span>
-                                            </label>
-                                        </div>
-                                    </div>
-                                </div>
-                                <!-- Dall-E -->
-                                <div class="tool-frequency-row">
-                                    <div class="question-text"><span class="category-title">Dall-E</span></div>
-                                    <div class="side-past">
-                                        <div class="tool-likert-group">
-                                            <label class="tool-likert-option"><input type="radio" name="freq_dalle"
-                                                    value="1">
-                                                <div class="tool-likert-circle"></div><span
-                                                    class="tool-likert-label">1</span>
-                                            </label>
-                                            <label class="tool-likert-option"><input type="radio" name="freq_dalle"
-                                                    value="2">
-                                                <div class="tool-likert-circle"></div><span
-                                                    class="tool-likert-label">2</span>
-                                            </label>
-                                            <label class="tool-likert-option"><input type="radio" name="freq_dalle"
-                                                    value="3">
-                                                <div class="tool-likert-circle"></div><span
-                                                    class="tool-likert-label">3</span>
-                                            </label>
-                                            <label class="tool-likert-option"><input type="radio" name="freq_dalle"
-                                                    value="4">
-                                                <div class="tool-likert-circle"></div><span
-                                                    class="tool-likert-label">4</span>
-                                            </label>
-                                            <label class="tool-likert-option"><input type="radio" name="freq_dalle"
-                                                    value="5">
-                                                <div class="tool-likert-circle"></div><span
-                                                    class="tool-likert-label">5</span>
-                                            </label>
-                                        </div>
-                                    </div>
-                                </div>
-                                <!-- NotebookLM -->
-                                <div class="tool-frequency-row">
-                                    <div class="question-text"><span class="category-title">NotebookLM</span></div>
-                                    <div class="side-past">
-                                        <div class="tool-likert-group">
-                                            <label class="tool-likert-option"><input type="radio" name="freq_notebooklm"
-                                                    value="1">
-                                                <div class="tool-likert-circle"></div><span
-                                                    class="tool-likert-label">1</span>
-                                            </label>
-                                            <label class="tool-likert-option"><input type="radio" name="freq_notebooklm"
-                                                    value="2">
-                                                <div class="tool-likert-circle"></div><span
-                                                    class="tool-likert-label">2</span>
-                                            </label>
-                                            <label class="tool-likert-option"><input type="radio" name="freq_notebooklm"
-                                                    value="3">
-                                                <div class="tool-likert-circle"></div><span
-                                                    class="tool-likert-label">3</span>
-                                            </label>
-                                            <label class="tool-likert-option"><input type="radio" name="freq_notebooklm"
-                                                    value="4">
-                                                <div class="tool-likert-circle"></div><span
-                                                    class="tool-likert-label">4</span>
-                                            </label>
-                                            <label class="tool-likert-option"><input type="radio" name="freq_notebooklm"
-                                                    value="5">
-                                                <div class="tool-likert-circle"></div><span
-                                                    class="tool-likert-label">5</span>
-                                            </label>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <!-- Otras -->
-                                <div class="tool-frequency-row" style="display: flex; align-items: center; gap: 7rem;">
-                                    <div style="flex-shrink: 0;"><span class="category-title"
-                                            style="margin-bottom: 0;">Otra</span></div>
-                                    <div style="flex-grow: 1;">
-                                        <input type="text" id="freq_otras" name="freq_otras" class="input-otras"
-                                            placeholder="Indica otras herramientas y su frecuencia..."
-                                            style="width: 100%; margin: 0; padding: 0.5rem 0.75rem;">
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- Tarjeta 6: Uso de IA -->
-                        <div class="info-card">
-                            <div class="form-group-vertical">
-                                <label class="question-label">¿Para qué usas la IAG? (Marca todas las que
-                                    apliquen)</label>
-                                <div class="radio-list">
-                                    <label class="radio-option-item">
-                                        <input type="checkbox" name="ai_usage" value="Para estudiar.">
-                                        <span>Para estudiar.</span>
-                                    </label>
-                                    <label class="radio-option-item">
-                                        <input type="checkbox" name="ai_usage"
-                                            value="Para hacer trabajos o tareas de la universidad.">
-                                        <span>Para hacer trabajos o tareas de la universidad.</span>
-                                    </label>
-                                    <label class="radio-option-item">
-                                        <input type="checkbox" name="ai_usage"
-                                            value="Para organizar viajes o actividades.">
-                                        <span>Para organizar viajes o actividades.</span>
-                                    </label>
-                                    <label class="radio-option-item">
-                                        <input type="checkbox" name="ai_usage" value="Para resolver dudas rápidas.">
-                                        <span>Para resolver dudas rápidas.</span>
-                                    </label>
-                                    <label class="radio-option-item">
-                                        <input type="checkbox" name="ai_usage"
-                                            value="Para crear imágenes o contenido creativo.">
-                                        <span>Para crear imágenes o contenido creativo.</span>
-                                    </label>
-                                    <label class="radio-option-item">
-                                        <input type="checkbox" name="ai_usage" value="Para redactar correos o textos.">
-                                        <span>Para redactar correos o textos.</span>
-                                    </label>
-                                    <label class="radio-option-item">
-                                        <input type="checkbox" name="ai_usage" value="Para aprender cosas nuevas.">
-                                        <span>Para aprender cosas nuevas.</span>
-                                    </label>
-                                    <label class="radio-option-item">
-                                        <input type="checkbox" name="ai_usage" value="Para ocio o entretenimiento.">
-                                        <span>Para ocio o entretenimiento.</span>
-                                    </label>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="form-actions" style="margin-top: 0; text-align: center;">
-                            <button type="button" class="btn btn-primary btn-xl" onclick="validateAndNext()">
-                                <span>Siguiente</span>
-                                <i data-lucide="arrow-right"></i>
-                            </button>
-                        </div>
-                    </div>
-                    <div id="section-2" class="hidden fade-in">
                         <div class="section-header-instructions"
                             style="margin-bottom: 2.5rem; text-align: justify; padding: 0 1rem; font-size: 1.15rem; color: var(--text-primary); line-height: 1.6; font-weight: 400;">
                             <p>A continuación, encontrarás una serie de afirmaciones. Indica el grado de acuerdo o
@@ -576,7 +138,8 @@
 
                             <div class="matrix-header-sticky">
                                 <div class="col-category">PREGUNTA</div>
-                                <div class="col-past">VALORACIÓN</div>
+                                <div class="col-past">DESPUÉS DE HABER REALIZADO TODOS LOS TRABAJOS</div>
+                                <div class="col-now">QUÉ HUBIERAS PUESTO EN EL CUESTIONARIO REALIZADO EN FEBRERO (CUANDO NO HABÍA RESTRICCIONES)</div>
                             </div>
                         </div>
 
@@ -586,7 +149,7 @@
                             <!-- Para mayor robustez, las definimos estáticamente sincronizadas con DEFAULT_QUESTIONS -->
 
                             <script>
-                                // Función auxiliar para generar el HTML de una fila de Likert
+                                // Función auxiliar para generar el HTML de una fila de Likert con doble columna
                                 function generateLikertRow(id, title) {
                                     let html = `
                                 <div class="question-row" data-id="${id}">
@@ -602,21 +165,27 @@
                                                 <div class="likert-circle"></div><span class="likert-label">${i}</span>
                                             </label>`;
                                     }
+                                    html += `</div></div><div class="side-now"><div class="likert-group">`;
+                                    for (let i = 1; i <= 5; i++) {
+                                        html += `
+                                            <label class="likert-option">
+                                                <input type="radio" name="now_${id}" value="${i}" onchange="saveResponse('now_${id}', ${i})">
+                                                <div class="likert-circle"></div><span class="likert-label">${i}</span>
+                                            </label>`;
+                                    }
                                     html += `</div></div></div>`;
                                     return html;
                                 }
 
-                                // Escribimos las preguntas 1-36
+                                // Escribimos las preguntas (Parte 1)
+                                const questionsPart1 = DEFAULT_QUESTIONS.slice(0, 22);
                                 document.write(
-                                    DEFAULT_QUESTIONS.slice(0, 36).map(q => generateLikertRow(q.id, q.category)).join('')
+                                    questionsPart1.map(q => generateLikertRow(q.id, q.category)).join('')
                                 );
                             </script>
                         </div>
 
                         <div class="form-actions">
-                            <button type="button" class="btn btn-secondary btn-xl" onclick="prevSection()">
-                                <i data-lucide="arrow-left"></i> <span>Volver</span>
-                            </button>
                             <button type="button" class="btn btn-primary btn-xl" onclick="validateSection2AndNext()">
                                 <span>Siguiente</span>
                                 <i data-lucide="arrow-right"></i>
@@ -634,15 +203,17 @@
 
                             <div class="matrix-header-sticky">
                                 <div class="col-category">PREGUNTA</div>
-                                <div class="col-past">VALORACIÓN</div>
+                                <div class="col-past">DESPUÉS DE HABER REALIZADO TODOS LOS TRABAJOS</div>
+                                <div class="col-now">QUÉ HUBIERAS PUESTO EN EL CUESTIONARIO REALIZADO EN FEBRERO (CUANDO NO HABÍA RESTRICCIONES)</div>
                             </div>
                         </div>
 
                         <div id="questions-container-part2">
                             <script>
                                 // Escribimos las preguntas 37-55
+                                const questionsPart2 = DEFAULT_QUESTIONS.slice(22, 41);
                                 document.write(
-                                    DEFAULT_QUESTIONS.slice(36).map(q => generateLikertRow(q.id, q.category)).join('')
+                                    questionsPart2.map(q => generateLikertRow(q.id, q.category)).join('')
                                 );
                             </script>
                         </div>
@@ -657,6 +228,35 @@
                             </button>
                         </div>
                     </div> <!-- Fin Section 3 -->
+
+                    <!-- SECCIÓN 3 DUPLICADA -->
+                    <div id="section-3-duplicada" class="hidden fade-in">
+                        <div class="mobile-sticky-block">
+                            <div class="sticky-reminder">
+                                Recuerda que 1 es “Totalmente en desacuerdo” y 5 es “Totalmente de acuerdo”.
+                            </div>
+
+                            <div class="matrix-header-sticky">
+                                <div class="col-category">PREGUNTA</div>
+                                <div class="col-past">DESPUÉS DE HABER REALIZADO TODOS LOS TRABAJOS</div>
+                                <div class="col-now">QUÉ HUBIERAS PUESTO EN EL CUESTIONARIO REALIZADO EN FEBRERO (CUANDO NO HABÍA RESTRICCIONES)</div>
+                            </div>
+                        </div>
+
+                        <div id="questions-container-part2-duplicada">
+                            <!-- Las filas se renderizan mediante app.js -->
+                        </div>
+
+                        <div class="form-actions">
+                            <button type="button" class="btn btn-secondary btn-xl" onclick="goToSection3()">
+                                <i data-lucide="arrow-left"></i> <span>Volver</span>
+                            </button>
+                            <button type="button" class="btn btn-primary btn-xl" onclick="validateSection3DuplicadaAndNext()">
+                                <span>Siguiente</span>
+                                <i data-lucide="arrow-right"></i>
+                            </button>
+                        </div>
+                    </div> <!-- Fin Section 3 Duplicada -->
 
                     <div id="section-4" class="hidden fade-in user-info-section">
 
@@ -675,21 +275,8 @@
                             </div>
                         </div>
 
-                        <!-- Tarjeta 2: Género (Movida de S1) -->
-                        <div class="info-card">
-                            <div class="form-group">
-                                <label for="user-profile">Género</label>
-                                <select id="user-profile">
-                                    <option value="" disabled selected>-- Selecciona una opción --</option>
-                                    <option value="Hombre">Hombre</option>
-                                    <option value="Mujer">Mujer</option>
-                                    <option value="Otro">Otro</option>
-                                </select>
-                            </div>
-                        </div>
-
                         <div class="form-actions">
-                            <button type="button" class="btn btn-secondary btn-xl" onclick="goToSection3()">
+                            <button type="button" class="btn btn-secondary btn-xl" onclick="goToSection3Duplicada()">
                                 <i data-lucide="arrow-left"></i> <span>Volver</span>
                             </button>
                             <button type="submit" id="submit-btn" class="btn btn-primary btn-xl">
@@ -718,7 +305,3 @@
 </body>
 
 </html>
-
-
-
-
