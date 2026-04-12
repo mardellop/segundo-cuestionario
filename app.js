@@ -205,7 +205,7 @@ function renderQuestions() {
             }
 
             return `
-            <div class="question-row fade-in" data-id="${q.id}">
+            <div class="question-row question-row-single fade-in" data-id="${q.id}">
                 <div class="question-text">
                     <span class="category-title">${q.category}</span>
                     <span class="question-subtext">${q.subtext || ''}</span>
@@ -219,21 +219,6 @@ function renderQuestions() {
                                     ${responses[`past_${q.id}`] == val ? 'checked' : ''} 
                                     data-checked-state="${responses[`past_${q.id}`] == val ? 'true' : 'false'}"
                                     onclick="toggleLikert(this, 'past_${q.id}', ${val})">
-                                <div class="likert-circle"></div>
-                                <span class="likert-label">${val}</span>
-                            </label>
-                        `).join('')}
-                    </div>
-                </div>
-
-                <div class="side-now">
-                    <div class="likert-group">
-                        ${[1, 2, 3, 4, 5].map(val => `
-                            <label class="likert-option">
-                                <input type="radio" name="now_${q.id}" value="${val}" 
-                                    ${responses[`now_${q.id}`] == val ? 'checked' : ''} 
-                                    data-checked-state="${responses[`now_${q.id}`] == val ? 'true' : 'false'}"
-                                    onclick="toggleLikert(this, 'now_${q.id}', ${val})">
                                 <div class="likert-circle"></div>
                                 <span class="likert-label">${val}</span>
                             </label>
@@ -460,22 +445,22 @@ if (mainForm) {
 
         // Construir payload EN EL ORDEN Y CON LAS CLAVES EXACTAS para Sheets y Supabase
         const payload = {
+            "sheetName": "CUESTIONARIO FINAL", // <--- Añadido para indicar al script que va a esta hoja
             "Fecha": new Date().toLocaleString(),
             "Apellidos": userSurname
         };
 
 
-        // 3. Items de valoración (1-55) con nombres completos
+        // 3. Items de valoración (1-55 y duplicadas) con nombres completos
         QUESTIONS.forEach((q, index) => {
             const valAfter = responses[`past_${q.id}`];
             const valBefore = responses[`now_${q.id}`];
             
-            // Si es de las duplicadas (índice >= 41)
-            if (index >= 41) {
-                payload[`${q.category} (Duplicada Después)`] = valAfter !== undefined ? valAfter : "";
-                payload[`${q.category} (Duplicada Retrospectiva)`] = valBefore !== undefined ? valBefore : "";
-            } else {
-                payload[`${q.category} (Después de la experiencia)`] = valAfter !== undefined ? valAfter : "";
+            // TODAS las valoraciones de la primera columna se graban igual
+            payload[`${q.category} (Después de la experiencia)`] = valAfter !== undefined ? valAfter : "";
+            
+            // Solo las 41 primeras preguntas originales tienen una segunda columna de retrospectiva
+            if (index < 41) {
                 payload[`${q.category} (Retrospectiva Cuestionario 1)`] = valBefore !== undefined ? valBefore : "";
             }
         });
