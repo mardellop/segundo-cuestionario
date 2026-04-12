@@ -529,12 +529,28 @@ body {
         height: 22px;
         background-color: var(--accent);
     }
+
+    .matrix-header-sticky, .question-row {
+        grid-template-columns: 1fr;
+        padding: 1.5rem;
+        gap: 1rem;
+    }
+
+    .col-past, .col-now, .side-past, .side-now {
+        justify-content: flex-start;
+        padding: 0.5rem 0;
+        font-weight: 600;
+        border-bottom: 1px dotted var(--border);
+    }
+    
+    .col-past::before { content: "Antes: "; margin-right: 5px; font-size: 0.8rem; opacity: 0.7; }
+    .col-now::before { content: "Después: "; margin-right: 5px; font-size: 0.8rem; opacity: 0.7; }
 }
 
 .matrix-header-sticky,
 .matrix-row {
     display: grid;
-    grid-template-columns: 2fr 1.5fr;
+    grid-template-columns: 1.8fr 1.1fr 1.1fr;
     align-items: center;
     padding: 20px;
     background: white;
@@ -629,17 +645,16 @@ body {
     display: none;
 }
 
-.col-now {
-    color: #000000;
+.col-now, .col-past, .side-now, .side-past {
     text-align: center;
-}
-
-.col-past {
-    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 #questions-container,
-#questions-container-part2 {
+#questions-container-part2,
+#questions-container-part2-duplicada {
     background: white;
     border-radius: 0 0 12px 12px;
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.03);
@@ -663,12 +678,19 @@ body {
 
 .question-row {
     display: grid;
-    grid-template-columns: 2fr 1.5fr;
+    grid-template-columns: 1.8fr 1.1fr 1.1fr;
     align-items: center;
-    padding: 1.5rem;
+    padding: 2.5rem 2.5rem;
     border: 1px solid var(--border);
     border-top: none;
     transition: background 0.2s;
+}
+
+@media (min-width: 769px) {
+    .matrix-header-sticky-single,
+    .question-row-single {
+        grid-template-columns: 2.8fr 1.2fr !important;
+    }
 }
 
 .question-row:hover {
@@ -685,6 +707,7 @@ body {
     font-size: 1.1rem;
     /* Reducido de 1.3rem */
     color: #000000;
+    margin-bottom: 0.5rem;
     text-align: justify;
 }
 
@@ -1268,8 +1291,93 @@ body {
         display: inline-block;
         width: 16px;
         height: 16px;
-        margin: 0 2px;
     }
 }
 
+/* --- REPARACIÓN DEFINITIVA RESPONSIVE MATRIX --- */
+@media (max-width: 768px) {
+    /* Diseño de Cuadrícula para forzar la pregunta a la izquierda y respuestas a la derecha */
+    .question-row {
+        display: grid !important;
+        grid-template-columns: 1fr 160px !important; /* 160px fijos para los círculos, el resto para el texto */
+        grid-template-rows: auto auto !important;
+        grid-template-areas: 
+            "text past"
+            "text now" !important;
+        padding: 1.25rem 1rem !important;
+        gap: 0.5rem !important;
+        align-items: center !important;
+    }
 
+    .matrix-header-sticky,
+    .matrix-header-sticky-single {
+        display: none !important;
+    }
+
+    .question-text { grid-area: text; text-align: left !important; padding-right: 0.75rem !important; font-size: 0.95rem; margin-bottom: 0; }
+    .side-past { grid-area: past; }
+    .side-now { grid-area: now; }
+
+    /* Variantes con una única columna (Sección Duplicada) */
+    .question-row-single {
+        grid-template-rows: auto !important;
+        grid-template-areas: "text past" !important;
+    }
+
+    /* Formato de las cabeceras de respuesta dentro de las áreas de pregunta reales */
+    .side-past, .side-now {
+        display: flex !important;
+        flex-direction: column !important;
+        width: 100% !important;
+        justify-content: center !important;
+        align-items: center !important;
+        border-bottom: none !important;
+        padding: 0.5rem 0 !important;
+    }
+
+    /* Ocultar los enormes textos explicativos de la cabecera pegajosa en móvil (ya están en cada pregunta) */
+    .matrix-header-sticky .col-past,
+    .matrix-header-sticky .col-now {
+        display: none !important;
+    }
+
+    /* Títulos pequeñitos encima de cada bloque de círculos para diferenciarlos */
+    .side-past::before, .side-now::before { 
+        display: block;
+        font-size: 0.6rem; 
+        font-weight: 800;
+        color: var(--accent);
+        margin-bottom: 0.3rem;
+        text-align: center;
+        line-height: 1.1;
+        letter-spacing: 0.5px;
+        text-transform: uppercase;
+    }
+    
+    .side-past::before { content: "DESPUÉS DE LA EXPERIENCIA"; color: #2563eb; }
+    .side-now::before { content: "CUESTIONARIO FEBRERO"; color: #475569; }
+    .question-row-single .side-past::before { content: "DESPUÉS DE LOS TRABAJOS"; color: #2563eb; }
+
+    /* Los círculos deben ser suficientemente pequeños para caber horizontalmente */
+    .likert-group {
+        width: 100%;
+        display: flex !important;
+        flex-direction: row !important;
+        justify-content: space-between !important;
+        padding: 0 !important;
+    }
+    
+    .likert-option, .tool-likert-option {
+        gap: 0.25rem !important;
+    }
+    
+    .likert-circle {
+        width: 24px !important;
+        height: 24px !important;
+        border-width: 1.5px !important;
+    }
+
+    .likert-label {
+        font-size: 0.7rem !important;
+    }
+}
