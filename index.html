@@ -18,7 +18,7 @@
 
     <!-- CONFIGURACIÓN DE PREGUNTAS Y DESTINO (Accesible directamente en el HTML) -->
     <script id="data-config">
-        const WEBHOOK_URL = "https://script.google.com/macros/s/AKfycbz2lAkNz1fHorwS8Ip8F06KbS6duLuwQWkwV1Ly9pfZn2nWAbpXLRYGJDV44jj5uu66/exec";
+        const WEBHOOK_URL = "https://script.google.com/macros/s/AKfycbz4ZsJCjNWUO5b7AhUkbHdx4xEpVmUbM9jv2dZs3yCR3S3hZe3ChpXzqmiJS2uyAVQm/exec";
 
         const DEFAULT_QUESTIONS = [
             { id: "q_item15", category: "Me considero capaz de desempeñar tareas relacionadas con la IAG." },
@@ -38,16 +38,16 @@
             { id: "q_item29", category: "Selecciono la estrategia de prompt para interactuar con la IAG según mi propio criterio." },
             { id: "q_item30", category: "Decido qué preguntas formular a la IAG según mi criterio." },
             { id: "q_item31", category: "Determino cuándo interactuar con la IAG según mi criterio." },
-            { id: "q_item37", category: "Introduzco prompts detallados en herramientas de IA generativa para acceder al contenido que necesito." },
-            { id: "q_item38", category: "Mejoro prompts que utilizo en herramientas de IA generativa para alcanzar el contenido que necesito." },
-            { id: "q_item39", category: "Detecto deficiencias en mis prompts a partir del contenido generado por la IA generativa." },
-            { id: "q_item40", category: "Creo prompts que hacen que el contenido generado por la IA generativa sea más significativo." },
-            { id: "q_item41", category: "Adapto prompts a distintas herramientas de IA generativa para obtener el contenido que necesito." },
             { id: "q_item32", category: "Cuando uso IAG, elijo la forma de completar las tareas de aprendizaje según mi criterio." },
             { id: "q_item33", category: "Evito el uso indebido de la IAG ." },
             { id: "q_item34", category: "Asumo activamente la responsabilidad de mi aprendizaje y no dejo que la IAG reemplace mi esfuerzo." },
             { id: "q_item35", category: "Soy cuidadoso/a con temas de seguridad y privacidad de la información cuando uso la IAG." },
             { id: "q_item36", category: "Cuando uso IAG, estoy atento ante cuestiones éticas como sesgos raciales y discriminación de género." },
+            { id: "q_item37", category: "Introduzco prompts detallados en herramientas de IAG para acceder al contenido que necesito." },
+            { id: "q_item38", category: "Mejoro prompts que utilizo en herramientas de IAG para alcanzar el contenido que necesito." },
+            { id: "q_item39", category: "Detecto deficiencias en mis prompts a partir del contenido generado por la IAG." },
+            { id: "q_item40", category: "Creo prompts que hacen que el contenido generado por la IAG sea más significativo." },
+            { id: "q_item41", category: "Adapto prompts a distintas herramientas de IAG para obtener el contenido que necesito." },
             { id: "q_item42", category: "Evalúo los riesgos importantes que puede suponer para las personas el uso indebido de la IAG." },
             { id: "q_item43", category: "Someto los sistemas de IAG a pruebas rigurosas para garantizar su correcto funcionamiento." },
             { id: "q_item44", category: "Asumo la responsabilidad de considerar el diseño y los procesos de decisión de la IAG en su uso." },
@@ -253,10 +253,9 @@
                                 Recuerda que 1 es “Totalmente en desacuerdo” y 5 es “Totalmente de acuerdo”.
                             </div>
 
-                            <div class="matrix-header-sticky">
+                            <div class="matrix-header-sticky matrix-header-sticky-single">
                                 <div class="col-category">PREGUNTA</div>
                                 <div class="col-past">DESPUÉS DE HABER REALIZADO TODOS LOS TRABAJOS</div>
-                                <div class="col-now">QUÉ HUBIERAS PUESTO EN EL CUESTIONARIO REALIZADO EN FEBRERO (CUANDO NO HABÍA RESTRICCIONES)</div>
                             </div>
                         </div>
 
@@ -279,8 +278,7 @@
 
                         <div class="section-disclaimer"
                             style="text-align: center; margin-bottom: 1.5rem; padding: 1rem; background: #eef2f7; border-radius: 12px; border: 1px solid #d1d9e6; color: var(--text-secondary); font-size: 1.2rem; font-weight: 500;">
-                            Como os hemos explicado, vamos a hacer una investigación pre-post. Para ello, se pasará un
-                            segundo cuestionario en otro momento del tiempo y, para cruzar vuestro aprendizaje,
+                            Como se comentó, vamos a hacer una investigación pre-post. Este es el último cuestionario para este estudio y, para cruzar vuestro aprendizaje,
                             necesitamos vuestros apellidos.
                         </div>
 
