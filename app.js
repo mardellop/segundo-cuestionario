@@ -204,10 +204,20 @@ function renderQuestions() {
             </div>`;
             }
 
-            return `
-            <div class="question-row question-row-single fade-in" data-id="${q.id}">
+            let groupHeaderHtml = '';
+            if (q.groupHeader) {
+                groupHeaderHtml = `
+                <div class="question-row fade-in" style="display: block; padding-bottom: 0.5rem; border-bottom: none; background: #f8fafc;">
+                    <div class="question-text" style="width: 100%;">
+                        <span class="category-title" style="font-weight: 600; font-size: 1.15rem; margin-bottom: 0; padding-top: 1rem;">${q.groupHeader}</span>
+                    </div>
+                </div>`;
+            }
+
+            return groupHeaderHtml + `
+            <div class="question-row question-row-single fade-in" data-id="${q.id}" ${q.displayCategory ? `style="padding-left: 3.5rem; padding-top: 0.75rem; padding-bottom: 0.75rem; ${q.id !== 'q_item65_3_dup' ? 'border-bottom: none;' : ''}"` : ''}>
                 <div class="question-text">
-                    <span class="category-title">${q.category}</span>
+                    <span class="category-title" ${q.displayCategory ? 'style="font-weight: 400;"' : ''}>${q.displayCategory || q.category}</span>
                     <span class="question-subtext">${q.subtext || ''}</span>
                 </div>
                 
@@ -337,6 +347,8 @@ window.resetSurvey = function () {
     // 3. Volver a la Sección 2 y ocultar las demás
     document.getElementById('section-2').classList.remove('hidden');
     document.getElementById('section-3').classList.add('hidden');
+    const secDisclaimer = document.getElementById('section-disclaimer-intermedio');
+    if (secDisclaimer) secDisclaimer.classList.add('hidden');
     const sec3Dup = document.getElementById('section-3-duplicada');
     if (sec3Dup) sec3Dup.classList.add('hidden');
     document.getElementById('section-4').classList.add('hidden');
@@ -368,8 +380,16 @@ window.validateSection2AndNext = function () {
 };
 
 window.validateSection3AndNext = function () {
-    // Todo bien, vamos a la Sección 3 Duplicada
+    // Todo bien, vamos a la Sección de Disclaimer
     document.getElementById('section-3').classList.add('hidden');
+    const secDisclaimer = document.getElementById('section-disclaimer-intermedio');
+    if (secDisclaimer) secDisclaimer.classList.remove('hidden');
+    window.scrollTo(0, 0);
+};
+
+window.validateDisclaimerAndNext = function () {
+    // Todo bien, vamos a la Sección 3 Duplicada
+    document.getElementById('section-disclaimer-intermedio').classList.add('hidden');
     const sec3Dup = document.getElementById('section-3-duplicada');
     if (sec3Dup) sec3Dup.classList.remove('hidden');
     window.scrollTo(0, 0);
@@ -391,6 +411,23 @@ window.goToSection2 = function () {
 };
 
 window.goToSection3 = function () {
+    const secDisclaimer = document.getElementById('section-disclaimer-intermedio');
+    if (secDisclaimer && !secDisclaimer.classList.contains('hidden')) {
+        secDisclaimer.classList.add('hidden');
+    } else {
+        const sec3Dup = document.getElementById('section-3-duplicada');
+        if (sec3Dup && !sec3Dup.classList.contains('hidden')) {
+            sec3Dup.classList.add('hidden');
+        } else {
+            document.getElementById('section-4').classList.add('hidden');
+        }
+    }
+    
+    document.getElementById('section-3').classList.remove('hidden');
+    window.scrollTo(0, 0);
+};
+
+window.goToDisclaimer = function () {
     const sec3Dup = document.getElementById('section-3-duplicada');
     if (sec3Dup && !sec3Dup.classList.contains('hidden')) {
         sec3Dup.classList.add('hidden');
@@ -398,7 +435,8 @@ window.goToSection3 = function () {
         document.getElementById('section-4').classList.add('hidden');
     }
     
-    document.getElementById('section-3').classList.remove('hidden');
+    const secDisclaimer = document.getElementById('section-disclaimer-intermedio');
+    if (secDisclaimer) secDisclaimer.classList.remove('hidden');
     window.scrollTo(0, 0);
 };
 
