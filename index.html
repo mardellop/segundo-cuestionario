@@ -71,21 +71,15 @@
             { id: "q_item62_dup", category: "He aprendido a reconocer cuándo la respuesta de la IAG contiene fuentes inexistentes o información incorrecta o inventada." },
             { id: "q_item63_dup", category: "He aprendido a utilizar adecuadamente las opciones de configuración y personalización de las herramientas de IAG." },
             { id: "q_item64_dup", category: "He aprendido a seleccionar la herramienta de IAG que considero más adecuada para cada tarea específica." },
-            { 
-                id: "q_item65_dup", 
-                type: "multiple-choice",
-                category: "Tras haber comprobado las fuentes que he empleado en los trabajos y su factualidad, he aprendido:",
-                options: [
-                    "que la IAG comete errores.",
-                    "a dudar de las respuestas de la IAG.",
-                    "a ser más crítico con lo que responde la IAG."
-                ]
-            },
+            { id: "q_item65_1_dup", groupHeader: "Tras haber comprobado las fuentes que he empleado en los trabajos y su factualidad, he aprendido:", displayCategory: "que la IAG comete errores.", category: "Tras haber comprobado las fuentes que he empleado en los trabajos y su factualidad, he aprendido que la IAG comete errores." },
+            { id: "q_item65_2_dup", displayCategory: "a dudar de las respuestas de la IAG.", category: "Tras haber comprobado las fuentes que he empleado en los trabajos y su factualidad, he aprendido a dudar de las respuestas de la IAG." },
+            { id: "q_item65_3_dup", displayCategory: "a ser más crítico con lo que responde la IAG.", category: "Tras haber comprobado las fuentes que he empleado en los trabajos y su factualidad, he aprendido a ser más crítico con lo que responde la IAG." },
             { id: "q_item66_dup", category: "A partir de ahora, seré más crítico con las respuestas que genera la IAG." },
             { id: "q_item67_dup", category: "A partir de ahora, ajustaré mis prompts cuando la respuesta no sea útil." },
             { id: "q_item68_dup", category: "A partir de ahora, seré más transparente en el uso de la IAG en los trabajos o tareas que realice." },
+            { id: "q_item69_dup", category: "Considero que mi rendimiento académico ha mejorado gracias al uso responsable de la IAG." },
             { 
-                id: "q_item69_dup", 
+                id: "q_item70_dup", 
                 type: "single-choice",
                 category: "Imagina que la IAG te entrega un texto perfecto, pero cita una fuente que no encuentras en ninguna parte para consultarla. ¿Qué harías?",
                 options: [
@@ -93,7 +87,6 @@
                     "Lo mantendría en mi trabajo, porque confío en que la IAG tiene acceso a dicha fuente."
                 ]
             },
-            { id: "q_item70_dup", category: "Considero que mi rendimiento académico ha mejorado gracias al uso responsable de la IAG." },
         ];
     </script>
 
@@ -156,7 +149,7 @@
                             <div class="matrix-header-sticky">
                                 <div class="col-category">PREGUNTA</div>
                                 <div class="col-past">DESPUÉS DE REALIZAR LOS TRABAJOS DE LA ASIGNATURA</div>
-                                <div class="col-now">QUÉ HUBIERAS PUESTO EN EL CUESTIONARIO REALIZADO A PRINCIPIO DE CURSO (CUANDO NO HABÍA NORMAS PARA HACER LOS TRABAJOS)</div>
+                                <div class="col-now">QUÉ HUBIERAS PUESTO EN EL CUESTIONARIO DE PRINCIPIO DE CURSO (NO HABÍA NORMAS PARA HACER LOS TRABAJOS)</div>
                             </div>
                         </div>
 
@@ -220,8 +213,8 @@
 
                             <div class="matrix-header-sticky">
                                 <div class="col-category">PREGUNTA</div>
-                                <div class="col-past">DESPUÉS DE HABER REALIZADO TODOS LOS TRABAJOS</div>
-                                <div class="col-now">QUÉ HUBIERAS PUESTO EN EL CUESTIONARIO REALIZADO EN FEBRERO (CUANDO NO HABÍA RESTRICCIONES)</div>
+                                <div class="col-past">DESPUÉS DE REALIZAR LOS TRABAJOS DE LA ASIGNATURA</div>
+                                <div class="col-now">QUÉ HUBIERAS PUESTO EN EL CUESTIONARIO DE PRINCIPIO DE CURSO (NO HABÍA NORMAS PARA HACER LOS TRABAJOS)</div>
                             </div>
                         </div>
 
@@ -246,6 +239,26 @@
                         </div>
                     </div> <!-- Fin Section 3 -->
 
+                    <!-- SECCIÓN DISCLAIMER INTERMEDIO -->
+                    <div id="section-disclaimer-intermedio" class="hidden fade-in user-info-section">
+                        <div class="section-disclaimer"
+                            style="text-align: center; margin: 2rem auto 4rem; padding: 3.5rem 2.5rem; background: linear-gradient(135deg, #ffffff 0%, #f4f7fb 100%); border-radius: 24px; border: 1px solid rgba(72, 136, 247, 0.15); box-shadow: 0 12px 40px rgba(0, 0, 0, 0.06), 0 4px 12px rgba(72, 136, 247, 0.05); color: #1e293b; font-size: 1.4rem; font-weight: 600; line-height: 1.6; max-width: 850px; position: relative;">
+                            <div style="display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 1.5rem;">
+                                <p style="margin: 0; color: #000000;">CON LAS SIGUIENTES PREGUNTAS QUEREMOS QUE VALORES TU EXPERIENCIA A LO LARGO DE TODO EL CURSO ACADÉMICO.</p>
+                                <p style="margin: 0; color: var(--accent); font-size: 1.6rem; font-weight: 800;">NUESTRO OBJETIVO ES QUE REFLEXIONES SOBRE TUS CAPACIDADES EN EL USO DE LA IAG.</p>
+                            </div>
+                        </div>
+                        <div class="form-actions">
+                            <button type="button" class="btn btn-secondary btn-xl" onclick="goToSection3()">
+                                <i data-lucide="arrow-left"></i> <span>Volver</span>
+                            </button>
+                            <button type="button" class="btn btn-primary btn-xl" onclick="validateDisclaimerAndNext()">
+                                <span>Siguiente</span>
+                                <i data-lucide="arrow-right"></i>
+                            </button>
+                        </div>
+                    </div> <!-- Fin Section Disclaimer -->
+
                     <!-- SECCIÓN 3 DUPLICADA -->
                     <div id="section-3-duplicada" class="hidden fade-in">
                         <div class="mobile-sticky-block">
@@ -255,7 +268,7 @@
 
                             <div class="matrix-header-sticky matrix-header-sticky-single">
                                 <div class="col-category">PREGUNTA</div>
-                                <div class="col-past">DESPUÉS DE HABER REALIZADO TODOS LOS TRABAJOS</div>
+                                <div class="col-past">DESPUÉS DE REALIZAR LOS TRABAJOS DE LA ASIGNATURA</div>
                             </div>
                         </div>
 
@@ -264,7 +277,7 @@
                         </div>
 
                         <div class="form-actions">
-                            <button type="button" class="btn btn-secondary btn-xl" onclick="goToSection3()">
+                            <button type="button" class="btn btn-secondary btn-xl" onclick="goToDisclaimer()">
                                 <i data-lucide="arrow-left"></i> <span>Volver</span>
                             </button>
                             <button type="button" class="btn btn-primary btn-xl" onclick="validateSection3DuplicadaAndNext()">
