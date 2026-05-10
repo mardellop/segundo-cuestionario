@@ -481,23 +481,20 @@ if (mainForm) {
         btn.innerHTML = '<span>Guardando...</span>';
         console.log(`🔒 [${transactionId}] Botón desactivado y flag isSubmitting = true`);
 
-        // Construir payload EN EL ORDEN Y CON LAS CLAVES EXACTAS para Sheets y Supabase
+        // Construir payload compatible con el nuevo script (Mapeo por nombre)
         const payload = {
-            "sheetName": "CUESTIONARIO FINAL", // <--- Añadido para indicar al script que va a esta hoja
+            "sheetName": "CUESTIONARIO FINAL",
             "Fecha": new Date().toLocaleString(),
             "Apellidos": userSurname
         };
 
 
-        // 3. Items de valoración (1-55 y duplicadas) con nombres completos
+        // 3. Items de valoración (1-55 y duplicadas) con nombres originales
         QUESTIONS.forEach((q, index) => {
             const valAfter = responses[`past_${q.id}`];
             const valBefore = responses[`now_${q.id}`];
             
-            // TODAS las valoraciones de la primera columna se graban igual
             payload[`${q.category} (Después de la experiencia)`] = valAfter !== undefined ? valAfter : "";
-            
-            // Solo las 41 primeras preguntas originales tienen una segunda columna de retrospectiva
             if (index < 41) {
                 payload[`${q.category} (Retrospectiva Cuestionario 1)`] = valBefore !== undefined ? valBefore : "";
             }
@@ -523,39 +520,39 @@ if (mainForm) {
             }
 
             // PASO 2: Intentar sincronizar registros pendientes
-            const webhook = (typeof WEBHOOK_URL !== 'undefined' ? WEBHOOK_URL : '') ||
-                sessionStorage.getItem('temp_webhook') ||
-                localStorage.getItem('google_sheet_webhook');
+            // PASO 3: Enviar a Google Sheets (con el link exacto del index.html)
+            const webhook = typeof WEBHOOK_URL !== 'undefined' ? WEBHOOK_URL : '';
 
             // NOTA: NO sincronizamos registros pendientes aquí para evitar duplicados.
             // Los registros pendientes se sincronizarán automáticamente en el próximo envío.
 
             // PASO 3: Enviar a Google Sheets (con reintentos)
             if (webhook) {
-                btn.innerHTML = '<span>Enviando cuestionario...</span>';
-                // El webhook de Google Apps Script ahora gestiona tanto la hoja de cálculo como el envío del email con el adjunto .txt
-                console.log(`📤 [${transactionId}] Iniciando envío a Google Sheets y Backup Gmail...`);
+                btn.innerHTML = '<span>Enviando...</span>';
+                console.log(`📤 [${transactionId}] Iniciando envío a Google Sheets...`);
 
                 const maxRetries = 3;
                 let retryCount = 0;
                 let sheetSuccess = false;
 
+                const fetchOptions = {
+                    method: 'POST',
+                    mode: 'no-cors',
+                    cache: 'no-cache',
+                    body: JSON.stringify(payload)
+                };
+
                 while (retryCount < maxRetries && !sheetSuccess) {
                     try {
-                        console.log(`📤 [${transactionId}] Intento ${retryCount + 1}/${maxRetries} de envío a Google Sheets...`);
+                        console.log(`📤 [${transactionId}] Intento ${retryCount + 1}/${maxRetries} a Google Sheets (Sincronizado)...`);
 
-                        await fetch(webhook, {
-                            method: 'POST',
-                            mode: 'no-cors',
-                            cache: 'no-cache',
-                            body: JSON.stringify(payload)
-                        });
-
-                        sheetSuccess = true;
-                        console.log(`✅ [${transactionId}] Datos enviados a Google Sheets`);
+                        await fetch(webhook, fetchOptions);
+                        
+                        sheetSuccess = true; 
+                        console.log(`✅ [${transactionId}] Petición enviada a Google Sheets`);
 
                         // Marcar como sincronizado en Supabase SOLO si se guardó exitosamente
-                        if (supabaseSaved && supabaseRecord) {
+                        if (supabaseSaved && supabaseRecord && supabaseRecord.id) {
                             await markAsSynced(supabaseRecord.id);
                             console.log(`✅ [${transactionId}] Registro marcado como sincronizado en Supabase`);
                         }
@@ -565,22 +562,17 @@ if (mainForm) {
                         console.warn(`❌ [${transactionId}] Intento ${retryCount} falló:`, sheetError);
 
                         if (retryCount < maxRetries) {
-                            // Esperar antes de reintentar (backoff exponencial)
                             const waitTime = Math.pow(2, retryCount) * 1000;
-                            console.log(`⏳ [${transactionId}] Esperando ${waitTime}ms antes de reintentar...`);
                             await new Promise(resolve => setTimeout(resolve, waitTime));
                         }
                     }
                 }
 
                 if (!sheetSuccess) {
-                    console.warn(`⚠️ [${transactionId}] No se pudo enviar a Google Sheets después de 3 intentos`);
-                    if (supabaseSaved) {
-                        console.log(`💾 [${transactionId}] Los datos están guardados en Supabase y se sincronizarán automáticamente en el próximo envío`);
-                    }
+                    console.error(`⚠️ [${transactionId}] No se pudo enviar a Google Sheets después de varios intentos`);
                 }
             } else {
-                console.warn(`⚠️ [${transactionId}] No hay webhook configurado para Google Sheets`);
+                console.warn(`⚠️ [${transactionId}] No hay WEBHOOK_URL configurado.`);
             }
 
             // PASO 4: Mostrar éxito al usuario
